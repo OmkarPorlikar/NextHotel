@@ -1,40 +1,66 @@
 // pages/index.js
-"use client";
+import { NextSeo } from 'next-seo';
 import { GoogleTagManager } from '@next/third-parties/google';
 
 import Header from '../components/layout/Header';
 import Hero from '../components/home/Hero';
 import Services from '../components/home/Services';
 import Footer from '../components/layout/Footer';
-import Contact  from '../components/Home/Contact';
- 
-
-// app/page.js (home page)
-
- const metadata = {
-  title: 'Hotel Sunshine Pauni | Near Pauni Dam | Kashi of Vidarbha',
-  description: 'Stay at Hotel Sunshine Pauni near Indira Sagar Project. Book now for clean rooms, peaceful surroundings, and spiritual tourism.',
-  keywords: 'pauni hotel, indira sagar dam, kashi of vidarbha, spiritual tourism, budget stay',
-  openGraph: {
-    title: 'Hotel Sunshine Pauni | Comfort Near Pauni Dam',
-    description: 'Peaceful hotel near Pauni Dam and Indira Sagar. Spiritual tourism in Vidarbha with modern amenities.',
-    url: 'https://hotelsunshinepauni.com',
-  },
-};
-
 
 export default function Home() {
   return (
-    <div> 
-   
+    <>
+      <NextSeo
+        title="Luxury Resort at Pauni Dam | Indira Sagar Waterfront Hotel | Kashi of Vidarbha"
+        description="Experience luxury accommodation at the serene banks of Pauni Dam & Indira Sagar reservoir. Explore Gose Dam activities & the spiritual heritage of Pauni - the Kashi of Vidarbha."
+        canonical="https://pauniresort.com/"
+        openGraph={{
+          url: 'https://pauniresort.com/',
+          title: 'Luxury Resort at Pauni Dam | Indira Sagar Waterfront Experience',
+          description: 'Discover premium accommodation at the beautiful Pauni Dam & Indira Sagar reservoir. Offering breathtaking views, water activities at Gose Dam, and spiritual experiences in the Kashi of Vidarbha.',
+          images: [
+            {
+              url: 'https://pauniresort.com/images/og-image.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'Pauni Riverside Resort at Indira Sagar Dam',
+              type: 'image/jpeg',
+            }
+          ],
+          siteName: 'Pauni Riverside Resort',
+        }}
+        twitter={{
+          handle: '@pauniresort',
+          site: '@pauniresort',
+          cardType: 'summary_large_image',
+        }}
+        additionalMetaTags={[
+          {
+            name: 'keywords',
+            content: 'pauni, indira sagar, gose dam, pauni dam, kashi of vidharbha, luxury resort, waterfront hotel, riverside accommodation, water activities, temple tourism'
+          },
+          {
+            name: 'geo.region',
+            content: 'IN-MH'
+          },
+          {
+            name: 'geo.placename',
+            content: 'Pauni, Maharashtra'
+          }
+        ]}
+        additionalLinkTags={[
+          {
+            rel: 'icon',
+            href: '/favicon.ico',
+          }
+        ]}
+      />
       
       <main>
         <Header />
         <Hero />
         <Services />
-      
         {/* Add more sections here */}
-        <Contact/>
         <Footer />
       </main>
       
@@ -87,6 +113,6 @@ export default function Home() {
           })
         }}
       />
-    </div>
+    </>
   );
 }
