@@ -3,8 +3,8 @@
 import { GoogleTagManager } from '@next/third-parties/google';
 
 import Header from '../components/layout/Header';
-import Hero from '../components/home/Hero';
-import Services from '../components/home/Services';
+import Hero from '../components/Home/Hero';
+import Services from '../components/Home/Services';
 import Footer from '../components/layout/Footer';
 import Contact  from '../components/Home/Contact';
  
