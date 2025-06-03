@@ -3,15 +3,17 @@
 import { GoogleTagManager } from '@next/third-parties/google';
 
 import Header from '../components/layout/Header';
-import Hero from '../components/home/Hero';
-import Services from '../components/home/Services';
+import Hero from '../components/Home/Hero';
+import Services from '../components/Home/Services';
 import Footer from '../components/layout/Footer';
-import Contact  from '../components/Home/Contact';
- 
-
+import Contact from '../components/Home/Contact';
+import Rooms from '../components/Home/Rooms';
+import Banner from '../components/Home/Banner';
+import Facility from '../components/Home/facilities';
+import Testimonials from '@/components/Home/Testimonials';
 // app/page.js (home page)
 
- const metadata = {
+const metadata = {
   title: 'Hotel Sunshine Pauni | Near Pauni Dam | Kashi of Vidarbha',
   description: 'Stay at Hotel Sunshine Pauni near Indira Sagar Project. Book now for clean rooms, peaceful surroundings, and spiritual tourism.',
   keywords: 'pauni hotel, indira sagar dam, kashi of vidarbha, spiritual tourism, budget stay',
@@ -25,21 +27,22 @@ import Contact  from '../components/Home/Contact';
 
 export default function Home() {
   return (
-    <div> 
-   
-      
+    <div>
       <main>
-        <Header />
+        {/* <Header /> */}
         <Hero />
         <Services />
-      
+        <Rooms />
+        <Banner/>
         {/* Add more sections here */}
-        <Contact/>
-        <Footer />
+        <Facility/>
+        <Testimonials/>
+        {/* <Contact /> */}
+        {/* <Footer /> */}
       </main>
-      
+
       <GoogleTagManager gtmId="GTM-XXXXXXX" />
-      
+
       {/* Structured Data for Hotel */}
       <script
         type="application/ld+json"

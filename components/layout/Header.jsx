@@ -1,138 +1,76 @@
 'use client';
-
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 
-const Header = () => {
-  const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const menuItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Rooms', path: '/rooms' },
-    { name: 'Experiences', path: '/experiences' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Contact', path: '/contact' },
-  ];
-
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 backdrop-blur bg-white/80 transition-all border-b ${
-        isScrolled ? 'shadow-sm' : ''
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? 'backdrop-blur-md bg-black/30 shadow-md' : 'backdrop-blur-md bg-black/30 shadow-md'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-        {/* Logo and Tagline */}
-        <Link href="/" aria-label="Hotel Sunshine Pauni Home">
-          {pathname === '/' ? (
-            <h1 className="text-xl font-semibold text-amber-800 tracking-tight">
-              Hotel Sunshine Pauni
-            </h1>
-          ) : (
-            <span className="text-xl font-semibold text-amber-800 tracking-tight">
-              Hotel Sunshine Pauni
-            </span>
-          )}
-          <span className="block text-xs text-gray-500">
-            Near Gosekhurd Dam · Pauni Fort · Wildlife Sanctuary
-          </span>
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-2 flex justify-between items-center">
+        {/* Logo */}
+        <Link href="/" className="flex items-center space-x-2">
+          <Image
+            src="/sunshine_logo.png"
+            alt="Hotel Sunshine Pauni Logo"
+            width={50}
+            height={50}
+            className="h-18 w-20"
+          />
         </Link>
 
-        {/* Navigation */}
-        <nav className="hidden md:flex space-x-6 items-center text-sm font-medium">
-          {menuItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.path}
-              className={`transition-colors hover:text-amber-600 ${
-                pathname === item.path ? 'text-amber-700' : 'text-gray-700'
-              }`}
-              aria-label={`Visit ${item.name} page`}
-            >
-              {item.name}
-            </Link>
-          ))}
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center space-x-6 text-white font-medium">
+          <Link href="/" className="hover:text-yellow-400">Home</Link>
+          <Link href="/rooms" className="hover:text-yellow-400">Rooms</Link>
+          <Link href="/gallery" className="hover:text-yellow-400">Gallery</Link>
+          <Link href="/faq" className="hover:text-yellow-400">FAQ</Link>
           <Link
-            href="/booking"
-            className="ml-4 inline-block bg-amber-600 text-white px-4 py-1.5 rounded-full text-sm hover:bg-amber-700 transition-colors"
-            aria-label="Book a room at Hotel Sunshine Pauni"
+            href="/book"
+            className="ml-4 bg-[#d4b264] hover:bg-[#bfa24f] text-black font-semibold py-2 px-4 rounded"
           >
             Book Now
           </Link>
         </nav>
 
-        {/* Mobile Hamburger */}
-        <div className="md:hidden">
-          <MobileMenu menuItems={menuItems} />
-        </div>
+        {/* Mobile Menu Toggle */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-white focus:outline-none"
+        >
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
+
+      {/* Mobile Nav */}
+      {menuOpen && (
+        <div className="md:hidden bg-black/90 text-white px-6 py-4 space-y-4 font-medium">
+          <Link href="/" onClick={() => setMenuOpen(false)} className="block">Home</Link>
+          <Link href="/rooms" onClick={() => setMenuOpen(false)} className="block">Rooms</Link>
+          <Link href="/gallery" onClick={() => setMenuOpen(false)} className="block">Gallery</Link>
+          <Link href="/faq" onClick={() => setMenuOpen(false)} className="block">FAQ</Link>
+          <Link
+            href="/book"
+            onClick={() => setMenuOpen(false)}
+            className="inline-block bg-[#d4b264] hover:bg-[#bfa24f] text-black font-semibold py-2 px-4 rounded"
+          >
+            Book Now
+          </Link>
+        </div>
+      )}
     </header>
   );
-};
-
-// Mobile Menu Component
-const MobileMenu = ({ menuItems }) => {
-  const [open, setOpen] = useState(false);
-  const pathname = usePathname();
-
-  return (
-    <>
-      <button
-        onClick={() => setOpen(!open)}
-        aria-label="Toggle mobile menu"
-        className="text-gray-800 focus:outline-none"
-      >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          {open ? (
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          ) : (
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          )}
-        </svg>
-      </button>
-
-      {open && (
-        <nav className="absolute top-full left-0 w-full bg-white shadow-md md:hidden">
-          <ul className="flex flex-col p-4 space-y-2 text-gray-700">
-            {menuItems.map((item) => (
-              <li key={item.name}>
-                <Link
-                  href={item.path}
-                  className={`block py-2 px-3 rounded hover:bg-amber-50 ${
-                    pathname === item.path ? 'text-amber-600 font-semibold' : ''
-                  }`}
-                  onClick={() => setOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link
-                href="/booking"
-                className="block text-white bg-amber-600 hover:bg-amber-700 rounded-full text-center py-2 px-4"
-                onClick={() => setOpen(false)}
-              >
-                Book Now
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      )}
-    </>
-  );
-};
-
-export default Header;
+}

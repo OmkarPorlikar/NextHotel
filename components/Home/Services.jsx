@@ -1,111 +1,96 @@
-// components/home/Services.jsx
-"use client";
+'use client';
 
-import { useRef } from "react";
-import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 
-const Services = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+// Dynamically import icons to reduce initial bundle
+const FaSnowflake = dynamic(() => import('react-icons/fa').then(mod => mod.FaSnowflake), { ssr: false });
+const FaWifi = dynamic(() => import('react-icons/fa').then(mod => mod.FaWifi), { ssr: false });
+const FaUtensils = dynamic(() => import('react-icons/fa').then(mod => mod.FaUtensils), { ssr: false });
+const FaGlassCheers = dynamic(() => import('react-icons/fa').then(mod => mod.FaGlassCheers), { ssr: false });
+const FaBatteryFull = dynamic(() => import('react-icons/fa').then(mod => mod.FaBatteryFull), { ssr: false });
+const FaTshirt = dynamic(() => import('react-icons/fa').then(mod => mod.FaTshirt), { ssr: false });
+const MdSecurity = dynamic(() => import('react-icons/md').then(mod => mod.MdSecurity), { ssr: false });
 
-  const servicesList = [
-    {
-      icon: "/images/icons/hotel-room.svg",
-      title: "Luxury Rooms",
-      description: "Spacious AC rooms with scenic views and modern amenities.",
-    },
-    {
-      icon: "/images/icons/dining.svg",
-      title: "Riverside Dining",
-      description: "Enjoy local & continental meals near Indira Sagar.",
-    },
-    {
-      icon: "/images/icons/boat.svg",
-      title: "Boating & Kayaking",
-      description: "Guided boating experiences at Gose Dam.",
-    },
-    {
-      icon: "/images/icons/temple.svg",
-      title: "Temple Tours",
-      description: "Visit ancient temples around Pauni with our guides.",
-    },
-    {
-      icon: "/images/icons/spa.svg",
-      title: "Ayurvedic Spa",
-      description: "Relax with natural therapies and dam views.",
-    },
-    {
-      icon: "/images/icons/event.svg",
-      title: "Event Hosting",
-      description: "Ideal for weddings & corporate events with stunning backdrops.",
-    },
-  ];
+const amenities = [
+  {
+    Icon: FaSnowflake,
+    title: 'Air Conditioning',
+    description: 'Climate-controlled comfort throughout the hotel for a pleasant stay in any weather.'
+  },
+  {
+    Icon: FaWifi,
+    title: 'Free Wi-Fi',
+    description: 'High-speed internet access available throughout the property for seamless connectivity.'
+  },
+  {
+    Icon: FaGlassCheers,
+    title: 'Banquet',
+    description: 'Elegant banquet facilities perfect for hosting special events and celebrations.'
+  },
+  {
+    Icon: FaUtensils,
+    title: 'Restaurant',
+    description: 'Fine dining restaurant serving exquisite cuisine for breakfast, lunch, and dinner.'
+  },
+  {
+    Icon: MdSecurity,
+    title: 'Security',
+    description: 'Round-the-clock security services for your safety and peace of mind.'
+  },
+  {
+    Icon: FaTshirt,
+    title: 'Laundry',
+    description: 'Professional laundry and dry-cleaning services available for our guests.'
+  }
+];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4 },
-    },
-  };
-
+export default function Services() {
   return (
-    <section ref={ref} className="py-16 bg-white" id="services">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <motion.h2
-            initial={{ opacity: 0, y: 10 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.4 }}
-            className="text-2xl md:text-3xl font-bold text-gray-800"
-          >
-            What We Offer
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-gray-500 mt-2 text-sm md:text-base"
-          >
-            Amenities & experiences for a memorable stay in Pauni
-          </motion.p>
-        </div>
+    <section className="bg-[#fdf7f2] py-16 px-4 text-center">
+      <motion.h3
+        className="text-sm tracking-widest text-gray-500"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        HOTEL FACILITIES
+      </motion.h3>
+      <motion.h2
+        className="text-4xl font-bold text-gray-800 mt-2"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        Our Premium Amenities
+      </motion.h2>
+      <motion.p
+        className="text-gray-600 max-w-xl mx-auto mt-4"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9 }}
+      >
+        Experience comfort and convenience with our comprehensive range of modern facilities and services.
+      </motion.p>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {servicesList.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="flex items-start space-x-4"
-            >
-              <div className="w-12 h-12 flex-shrink-0 bg-amber-100 rounded-full flex items-center justify-center">
-                <Image src={service.icon} alt={service.title} width={24} height={24} />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800">{service.title}</h3>
-                <p className="text-gray-500 text-sm mt-1">{service.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12 max-w-6xl mx-auto">
+        {amenities.map((item, idx) => (
+          <motion.div
+            key={idx}
+            className="bg-[#0e1529] text-white p-6 rounded-lg shadow-lg flex flex-col items-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            viewport={{ once: true }}
+          >
+            <div className="mb-4 text-yellow-400">
+              <item.Icon size={40} />
+            </div>
+            <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+            <p className="text-sm text-gray-300">{item.description}</p>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
-};
-
-export default Services;
+}

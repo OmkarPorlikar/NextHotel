@@ -1,71 +1,80 @@
-// components/layout/Footer.jsx
+import React from 'react';
+import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
-"use client";
-
-import Link from 'next/link';
-
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {/* About */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Pauni Riverside Resort</h3>
-            <p className="text-gray-400">
-              A serene riverside stay in the spiritual town of Pauni. Enjoy peaceful rooms, local cuisine, and scenic views near the Pauni and Gose Dams.
-            </p>
-          </div>
+    <footer className="bg-black text-white px-6 md:px-20 py-12">
+      {/* JSON-LD for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Hotel",
+            "name": "Hotel Sunshine Pauni",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Opposite to APMC Yard, Batawadi, NH4",
+              "addressLocality": "Tumkur",
+              "addressRegion": "Karnataka",
+              "postalCode": "572103",
+              "addressCountry": "IN"
+            },
+            "telephone": "+91-9364012399",
+            "email": "infohotelgsrtumkur@gmail.com",
+            "url": "https://gsr-website.vercel.app"
+          }),
+        }}
+      />
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-gray-400">
-              {[
-                ['Home', '/'],
-                ['Rooms & Suites', '/rooms-suites'],
-                ['Dining', '/dining'],
-                ['Gallery', '/gallery'],
-                ['Contact Us', '/contact']
-              ].map(([label, href]) => (
-                <li key={label}>
-                  <Link href={href} className="hover:text-white transition-colors">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* Left - Contact Info */}
+        <div>
+          <img src="/sunshine_logo.png" alt="Hotel sunshine pauni Logo" className="h-16 mb-4" />
+          <h2 className="text-xl font-semibold mb-2">Hotel Sunshine Pauni</h2>
+          <p>Khapri Road, Pauni Tah, Dist<br />Pauni, Maharashtra 441910</p>
+          <div className="mt-4 flex items-center gap-2">
+            <FaPhoneAlt className="text-yellow-400" />
+            <a href="tel:+919364012399" className="hover:underline">+91-9364012399</a>
           </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Contact</h3>
-            <address className="not-italic text-gray-400 text-sm">
-              <p>Riverside Road, Near Pauni Dam</p>
-              <p>Pauni, Maharashtra – 441901</p>
-              <p>Phone: <span className="text-white">+91 1234567890</span></p>
-              <p>Email: <span className="text-white">info@pauniresort.com</span></p>
-            </address>
-            <div className="mt-4">
-              <a href="#" className="inline-block bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded transition-colors">
-                Get Directions
-              </a>
-            </div>
+          <div className="mt-2 flex items-center gap-2">
+            <FaEnvelope className="text-yellow-400" />
+            <a href="mailto:infohotelgsrtumkur@gmail.com" className="hover:underline">infohotelgsrtumkur@gmail.com</a>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-gray-800 pt-6 text-sm text-gray-500 text-center">
-          <p>© {new Date().getFullYear()} Pauni Riverside Resort. All rights reserved.</p>
-          <div className="mt-4 space-x-6">
-            <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
-            <Link href="/terms-conditions" className="hover:text-white">Terms</Link>
-            <Link href="/sitemap" className="hover:text-white">Sitemap</Link>
-          </div>
+        {/* Center - Links */}
+        <div>
+          <h2 className="text-xl font-semibold mb-4">Quick Links</h2>
+          <ul className="space-y-2">
+            <li><a href="#home" className="hover:underline">Home</a></li>
+            <li><a href="#rooms" className="hover:underline">Rooms</a></li>
+            <li><a href="#gallery" className="hover:underline">Gallery</a></li>
+            <li><a href="#faq" className="hover:underline">FAQ</a></li>
+          </ul>
         </div>
+
+        {/* Right - Map */}
+        <div>
+          <h2 className="text-xl font-semibold mb-4">Find Us</h2>
+          <iframe
+            title="Google Map - Hotel Sunshine Pauni"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.539942509845!2d79.629993!3d20.79402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2b58bdaf69a94d%3A0xa3433fd1623ff144!2sHotel%20Sunshine%20Pauni!5e0!3m2!1sen!2sin!4v1717056000000!5m2!1sen!2sin"
+            width="100%"
+            height="250"
+            style={{ border: 0, borderRadius: '10px' }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="text-center text-sm mt-10 border-t border-gray-700 pt-4">
+        <p>Terms & Conditions</p>
+        <p className="mt-1">© 2025 Hotel Sunshine. All rights reserved.</p>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

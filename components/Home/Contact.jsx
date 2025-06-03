@@ -17,19 +17,20 @@ ContactCard.displayName = 'ContactCard';
 
 // Google Map component (placeholder - replace with actual Google Maps implementation)
 const GoogleMapComponent = memo(() => (
-  <div className="w-full h-full bg-gray-100 rounded-lg relative overflow-hidden">
-    {/* This would be replaced with actual Google Maps */}
-    <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-gray-100">
-      <div className="absolute top-4 left-4 bg-white p-2 rounded shadow text-xs">
-        <div className="font-semibold">Jl. Raya Ubud No.70</div>
-        <div className="text-gray-600">Bali, Indonesia</div>
-      </div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-        <div className="w-8 h-8 bg-red-500 rounded-full shadow-lg border-2 border-white"></div>
-      </div>
-    </div>
+  <div className="w-full h-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px] rounded-2xl overflow-hidden">
+    <iframe
+      title="Hotel Sunshine Pauni Location"
+      width="100%"
+      height="100%"
+      loading="lazy"
+      allowFullScreen
+      className="border-0 w-full h-full"
+      referrerPolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.539942509845!2d79.629993!3d20.79402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2b58bdaf69a94d%3A0xa3433fd1623ff144!2sHotel%20Sunshine%20Pauni!5e0!3m2!1sen!2sin!4v1717056000000!5m2!1sen!2sin"
+    ></iframe>
   </div>
 ));
+
 
 GoogleMapComponent.displayName = 'GoogleMapComponent';
 
@@ -54,13 +55,13 @@ const Contact = () => {
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       // Add your form submission logic here
       console.log('Form submitted:', formData);
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       // Reset form on success
       setFormData({
         name: '',
@@ -68,7 +69,7 @@ const Contact = () => {
         subject: '',
         message: ''
       });
-      
+
       alert('Message sent successfully!');
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -88,26 +89,27 @@ const Contact = () => {
         <meta property="og:description" content="Get in touch with Travella for personalized travel planning and support." />
         <link rel="preconnect" href="https://maps.googleapis.com" />
       </Head>
-      
+
       <section className="py-16 px-4 bg-gray-50" role="main" aria-labelledby="contact-heading">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
+          <div className="relative z-10 text-center mb-12">
             <h1 id="contact-heading" className="text-4xl font-bold text-gray-900 mb-4">
               Get In Touch With Travella
             </h1>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua
             </p>
           </div>
+
 
           {/* Contact Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             <ContactCard
               icon={
                 <svg className="w-8 h-8 text-orange-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                 </svg>
               }
               title="Our Location"
@@ -115,21 +117,21 @@ const Contact = () => {
               bgColor="bg-slate-800"
               textColor="text-white"
             />
-            
+
             <ContactCard
               icon={
                 <svg className="w-8 h-8 text-orange-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                 </svg>
               }
               title="Phone Number"
               subtitle="(123) 456-789"
             />
-            
+
             <ContactCard
               icon={
                 <svg className="w-8 h-8 text-orange-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                 </svg>
               }
               title="Email Us"
@@ -137,11 +139,11 @@ const Contact = () => {
               bgColor="bg-slate-800"
               textColor="text-white"
             />
-            
+
             <ContactCard
               icon={
                 <svg className="w-8 h-8 text-orange-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
                 </svg>
               }
               title="Working Hours"
@@ -150,8 +152,8 @@ const Contact = () => {
           </div>
 
           {/* Map and Contact Form Container */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+          <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* Google Map */}
               <div className="relative">
                 <GoogleMapComponent />
