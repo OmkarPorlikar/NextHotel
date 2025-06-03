@@ -3,7 +3,7 @@ import { Phone, Mail, Whatsapp } from 'lucide-react';
 const FloatingContactIcons = () => {
   const phoneNumber = '+91 9156107704'; // Replace with real number
   const whatsappNumber = '919156107704'; // No '+' in wa.me link
-  const email = 'contact@gsrhotel.com';
+  const email = 'contact@hotelsunshine.com';
 
   return (
     <div className="fixed right-5 bottom-5 flex flex-col gap-4 z-50">
