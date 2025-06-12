@@ -25,7 +25,7 @@ export default function Hero() {
     <section className="relative w-full h-screen overflow-hidden pt-0">
 
           <NextSeo
-        title="Home | GSR Hotel"
+        title="Home | Hotel SunShine Pauni"
         description="Test page for GSR Hotel using next-seo with App Router"
         canonical="https://example.com/"
       />
