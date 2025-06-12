@@ -252,14 +252,15 @@ const DynamicTourismPage = ({ placeData }) => {
             </p>
 
             <Link
-              href={`https://wa.me/${whatsappNumber}`}
-              className="group flex items-center px-12 py-6 rounded-full font-bold text-xl text-white hover:scale-105 transition-all shadow-2xl"
-              style={{ backgroundColor: placeData.colors.accent }}
-            >
-              <Users className="w-6 h-6 mr-3" />
-              Plan Your Escape
-              <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
-            </Link>
+  href={`https://wa.me/${whatsappNumber}`}
+  className="group mx-auto w-fit flex items-center px-6 py-3 rounded-full font-semibold text-lg text-white hover:scale-105 transition-all shadow-lg text-center"
+  style={{ backgroundColor: placeData.colors.accent }}
+>
+  <Users className="w-5 h-5 mr-2" />
+  Plan Your Escape
+  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+</Link>
+
           </div>
         </div>
       </div>
