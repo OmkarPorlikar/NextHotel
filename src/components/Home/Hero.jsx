@@ -27,7 +27,7 @@ export default function Hero() {
           <NextSeo
         title="Home | Hotel SunShine Pauni"
         description="Test page for GSR Hotel using next-seo with App Router"
-        canonical="https://example.com/"
+        canonical="https://www.hotelsunshinepauni.com/"
       />
 
       <div className="absolute inset-0 transition-all duration-1000">
