@@ -20,7 +20,7 @@ const FloatingContactIcons = () => {
           alt="Phone Icon"
           width={40}
           height={40}
-          className="text-white w-[9] h-[9]"
+          className=""
         />
       </a>
 
@@ -40,7 +40,7 @@ const FloatingContactIcons = () => {
           alt="WhatsApp Icon"
           width={40}
           height={40}
-          className="text-white w-[9] h-[9]"
+          className=""
         />
       </a>
 
@@ -60,7 +60,7 @@ const FloatingContactIcons = () => {
           alt="Instagram Icon"
           width={40}
           height={40}
-          className="text-white w-[9] h-[9] rounded-[50%]"
+          className="rounded-[50%]"
         />
       </a>
     </div>
