@@ -145,6 +145,35 @@ export default function SingleRoomPage({ room }) {
                     </div>
                 </section>
             </main>
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "HotelRoom",
+                        "name": roomData.name,
+                        "description": roomData.description,
+                        "image": [`https://www.hotelsunshinepauni.com${roomData.image}`],
+                        "bed": {
+                            "@type": "BedDetails",
+                            "type": roomData.bed,
+                        },
+                        "floorSize": {
+                            "@type": "QuantitativeValue",
+                            "value": parseInt(roomData.size),
+                            "unitText": "SQFT",
+                        },
+                        "offers": {
+                            "@type": "Offer",
+                            "price": roomData.price,
+                            "priceCurrency": "INR",
+                            "availability": "https://schema.org/InStock",
+                            "url": `https://www.hotelsunshinepauni.com/rooms/${roomData.slug}`
+                        }
+                    })
+                }}
+            />
         </>
     );
 };

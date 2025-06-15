@@ -6,42 +6,19 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white px-6 md:px-20 py-12">
       {/* JSON-LD Schema for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Hotel",
-            "name": "Hotel Sunshine Pauni",
-            "image": "https://hotelsunshinepauni.com/sunshine_logo.png",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Khapri Road",
-              "addressLocality": "Pauni",
-              "addressRegion": "Maharashtra",
-              "postalCode": "441910",
-              "addressCountry": "IN"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 20.79402,
-              "longitude": 79.629993
-            },
-            "telephone": "+91-9021431127",
-            "email": "info@hotelsunshinepauni.com",
-            "url": "https://hotelsunshinepauni.com",
-            "sameAs": [
-              "https://www.facebook.com/hotelsunshinepauni",
-              "https://www.instagram.com/hotelsunshinepauni"
-            ]
-          }),
-        }}
-      />
-
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Left - Contact Info */}
         <address className="not-italic">
-          <Image src="/sunshine_logo.png" alt="..." fill className="object-contain" />
+          <div className="mb-4">
+            <Image
+              src="/sunshine_logo.png"
+              alt="Hotel Sunshine Pauni Logo"
+              width={160}
+              height={80}
+              className="object-contain"
+              priority
+            />
+          </div>
           <h2 className="text-xl font-semibold mb-2">Hotel Sunshine Pauni</h2>
           <p>
             Khapri Road, Pauni Tahsil<br />
@@ -66,7 +43,6 @@ export default function Footer() {
             <li><a href="/" className="hover:underline">Home</a></li>
             <li><a href="/rooms" className="hover:underline">Rooms</a></li>
             <li><a href="/gallery" className="hover:underline">Gallery</a></li>
-            <li><a href="/faq" className="hover:underline">FAQ</a></li>
           </ul>
         </nav>
 

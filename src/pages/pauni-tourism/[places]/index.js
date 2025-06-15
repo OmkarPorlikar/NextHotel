@@ -250,19 +250,47 @@ const DynamicTourismPage = ({ placeData }) => {
             <p className="text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
               Step into a world where luxury meets wilderness, where every moment becomes a treasured memory.
             </p>
-
             <Link
               href={`https://wa.me/${whatsappNumber}`}
-              className="group flex items-center px-12 py-6 rounded-full font-bold text-xl text-white hover:scale-105 transition-all shadow-2xl"
+              className="group mx-auto w-fit flex items-center px-6 py-3 rounded-full font-semibold text-lg text-white hover:scale-105 transition-all shadow-lg text-center"
               style={{ backgroundColor: placeData.colors.accent }}
             >
-              <Users className="w-6 h-6 mr-3" />
+              <Users className="w-5 h-5 mr-2" />
               Plan Your Escape
-              <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
+
           </div>
         </div>
       </div>
+
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TouristAttraction",
+            "name": placeData.name,
+            "description": placeData.description,
+            "image": [placeData.heroImage],
+            "url": `https://www.hotelsunshinepauni.com/pauni-attractions/${placeData.slug}`,
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": placeData.coordinates.lat,
+              "longitude": placeData.coordinates.lng
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Pauni",
+              "addressRegion": "Maharashtra",
+              "addressCountry": "IN"
+            }
+          })
+        }}
+      />
+
+
     </>
   );
 };
