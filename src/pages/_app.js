@@ -16,12 +16,12 @@ function MyApp({ Component, pageProps }) {
   // console.log(routes.asPath , "as path");
   return (
     <>
-      {/* {isSingle ? <Header /> : <AltHeader />} */}
+       {isSingle ? <Header /> : <AltHeader />} 
       <main className="min-h-screen">
         <Component {...pageProps} />
       </main>
       <FloatingContactIcons />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
