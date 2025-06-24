@@ -1,99 +1,44 @@
 // components/SEO/breadcrumb.config.js
 
-export const BREADCRUMB_CONFIG = {
-  // Home page - no breadcrumbs needed
-  home: [],
-  
-  // Rooms page
+const BREADCRUMB_CONFIG = {
+  home: [
+    { name: "Home", href: "/" }
+  ],
+
   rooms: [
-    { name: 'Rooms & Suites', href: null }
+    { name: "Home", href: "/" },
+    { name: "Rooms & Suites", href: undefined }
   ],
-  
-  // Specific room page
+
   roomDetail: (roomName) => [
-    { name: 'Rooms & Suites', href: '/rooms' },
-    { name: roomName, href: null }
+    { name: "Home", href: "/" },
+    { name: "Rooms & Suites", href: "/rooms" },
+    { name: roomName, href: undefined }
   ],
-  
-  // Locations
-  locations: [
-    { name: 'Locations', href: null }
+
+  pauniTourism: [
+    { name: "Home", href: "/" },
+    { name: "Pauni Tourism", href: undefined }
   ],
-  
-  // Specific location pages
-  gosekhurdDam: [
-    { name: 'Locations', href: '/locations' },
-    { name: 'Near Gosekhurd Dam', href: null }
-  ],
-  
-  pauniFort: [
-    { name: 'Locations', href: '/locations' },
-    { name: 'Near Pauni Fort', href: null }
-  ],
-  
-  karhandlaWildlife: [
-    { name: 'Locations', href: '/locations' },
-    { name: 'Near Karhandla Wildlife Sanctuary', href: null }
-  ],
-  
-  umredRoute: [
-    { name: 'Locations', href: '/locations' },
-    { name: 'Umred-Pauni Route', href: null }
-  ],
-  
-  // Facilities
-  facilities: [
-    { name: 'Facilities', href: null }
-  ],
-  
-  // Contact
-  contact: [
-    { name: 'Contact Us', href: null }
-  ],
-  
-  // About
-  about: [
-    { name: 'About Hotel Sunshine', href: null }
-  ],
-  
-  // Gallery
-  gallery: [
-    { name: 'Photo Gallery', href: null }
-  ],
-  
-  // Booking
-  booking: [
-    { name: 'Book Now', href: null }
-  ],
-  
-  // Blog (if you add blog)
-  blog: [
-    { name: 'Blog', href: null }
-  ],
-  
-  blogPost: (postTitle) => [
-    { name: 'Blog', href: '/blog' },
-    { name: postTitle, href: null }
-  ],
-  
-  // Reviews
-  reviews: [
-    { name: 'Guest Reviews', href: null }
-  ],
-  
-  // Special offers
-  offers: [
-    { name: 'Special Offers', href: null }
+
+  attractionDetail: (title) => [
+    { name: "Home", href: "/" },
+    { name: "Pauni Tourism", href: "/pauni-attractions" },
+    { name: title, href: undefined }
   ]
 };
 
-// Helper function to get breadcrumbs for a page
+// 🔧 Helper Function
 export const getBreadcrumbs = (pageKey, ...params) => {
   const config = BREADCRUMB_CONFIG[pageKey];
-  
-  if (typeof config === 'function') {
-    return config(...params);
-  }
-  
-  return config || [];
+  return typeof config === "function" ? config(...params) : config || [];
+};
+
+// 📍 Place Slug Mapping (Optional but Useful)
+export const PLACE_LABELS = {
+  "pauni-fort": "Pauni Fort",
+  "waijeshwar-ghat": "Waijeshwar Ghat",
+  "waijeshwar-temple": "Waijeshwar Temple",
+  "sindhpuri-buddha-temple": "Sindhpuri Buddha Temple",
+  "umred-pauni-karhandla-wildlife-sanctuary": "Umred–Pauni–Karhandla Wildlife Sanctuary"
 };

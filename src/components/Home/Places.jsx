@@ -132,7 +132,7 @@ export default function Places() {
   return (
     <>
 
-      <NextSeo
+      {/* <NextSeo
         title="Best Tourist Places in Pauni, Maharashtra | Hotel Sunshine Pauni"
         description="Explore historical forts, ancient temples, and spiritual sites in Pauni. Book your stay at Hotel Sunshine Pauni for comfortable accommodation near all attractions."
         canonical="https://www.hotelsunshinepauni.com/pauni-tourism"
@@ -166,7 +166,7 @@ export default function Places() {
             content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0'
           }
         ]}
-      />
+      /> */}
 
 
       <section
@@ -191,7 +191,7 @@ export default function Places() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* SEO Optimized Header */}
           <header className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h1
+            <h2
               id="places-heading"
               className={`text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-light text-white mb-4 transform transition-all duration-800 will-change-transform ${isVisible
                   ? 'opacity-100 translate-y-0'
@@ -200,7 +200,7 @@ export default function Places() {
               itemProp="name"
             >
               Best Tourist Places to Visit in Pauni, Maharashtra
-            </h1>
+            </h2>
             <p
               className={`text-white/70 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto mb-4 transform transition-all duration-800 delay-100 will-change-transform ${isVisible
                   ? 'opacity-100 translate-y-0'
@@ -399,7 +399,6 @@ export default function Places() {
         </div>
       </section>
 
-      {/* Enhanced JSON-LD for Better SEO */}
 
     </>
 

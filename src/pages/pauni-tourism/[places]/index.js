@@ -49,11 +49,6 @@ const DynamicTourismPage = ({ placeData }) => {
         }}
       />
 
-      {/* Breadcrumb Navigation - Responsive */}
-      <div className="bg-gray-50 py-3 px-4 sm:px-6 text-sm">
-        <Breadcrumb items={breadcrumbs} />
-      </div>
-
       <div className="min-h-screen bg-white">
 
         {/* Hero Section - Mobile Responsive */}

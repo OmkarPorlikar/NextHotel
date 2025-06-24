@@ -21,11 +21,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </main>
       <FloatingContactIcons />
-<<<<<<< HEAD
       <Footer />
-=======
-       <Footer /> 
->>>>>>> ae8c294cba94bce3217c307c4278a53e312ed044
     </>
   );
 }
