@@ -25,25 +25,10 @@ export default function Hero() {
   return (
     <section className="relative w-full h-screen overflow-hidden pt-0">
 
-      <NextSeo
-        title="Hotel Sunshine Pauni | Comfortable Stay Near Pauni Fort"
-        description="Book your stay at Hotel Sunshine Pauni for peaceful and budget-friendly lodging near Waijeshwar Ghat and Pauni Fort."
-        canonical="https://www.hotelsunshinepauni.com/"
-        openGraph={{
-          url: 'https://www.hotelsunshinepauni.com/',
-          title: 'Hotel Sunshine Pauni | Comfortable Stay Near Pauni Fort',
-          description:
-            'Book your stay at Hotel Sunshine Pauni for peaceful and budget-friendly lodging near Waijeshwar Ghat and Pauni Fort.',
-          images: [
-            {
-              url: 'https://www.hotelsunshinepauni.com/og-home.jpg',
-              width: 1200,
-              height: 630,
-              alt: 'Hotel Sunshine Pauni room photo with logo',
-            },
-          ],
-          site_name: 'Hotel Sunshine Pauni',
-        }}
+          <NextSeo
+        title="Home | GSR Hotel"
+        description="Test page for GSR Hotel using next-seo with App Router"
+        canonical="https://example.com/"
       />
 
       <div className="absolute inset-0 transition-all duration-1000">
