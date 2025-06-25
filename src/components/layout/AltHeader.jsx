@@ -20,9 +20,8 @@ export default function AltHeader() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 mb-[2rem] ${
-        scrolled ? 'backdrop-blur-md bg-black/30 shadow-md' : 'backdrop-blur-md bg-black/30 shadow-md'
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 mb-[2rem] ${scrolled ? 'backdrop-blur-md bg-black/30 shadow-md' : 'backdrop-blur-md bg-black/30 shadow-md'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-2 flex justify-between items-center">
         {/* Logo with descriptive alt and priority */}
@@ -42,6 +41,8 @@ export default function AltHeader() {
           <Link href="/" className="hover:text-yellow-400">Home</Link>
           <Link href="/rooms" className="hover:text-yellow-400">Rooms</Link>
           <Link href="/gallery" className="hover:text-yellow-400">Gallery</Link>
+          <Link href="/pauni-tourism" className="hover:text-yellow-400">Places</Link>
+
 
           {/* Social Links */}
           <a
@@ -89,6 +90,8 @@ export default function AltHeader() {
           <Link href="/" onClick={() => setMenuOpen(false)} className="block">Home</Link>
           <Link href="/rooms" onClick={() => setMenuOpen(false)} className="block">Rooms</Link>
           <Link href="/gallery" onClick={() => setMenuOpen(false)} className="block">Gallery</Link>
+          <Link href="/pauni-tourism" onClick={() => setMenuOpen(false)} className="block">Places</Link>
+
 
           <div className="flex space-x-4 mt-2">
             <a

@@ -131,22 +131,22 @@ export default function PlacesList() {
 
   return (
     <>
-
       <NextSeo
-        title="Best Tourist Places in Pauni, Maharashtra | Hotel Sunshine Pauni"
-        description="Explore historical forts, ancient temples, and spiritual sites in Pauni. Book your stay at Hotel Sunshine Pauni for comfortable accommodation near all attractions."
+        title="Best Tourist Attractions in Pauni, Maharashtra | Hotel Sunshine Pauni"
+        description="Discover the top tourist attractions in Pauni including Pauni Fort, Waijeshwar Temple, sacred ghats, and Buddhist relics. Stay at Hotel Sunshine Pauni for a peaceful and convenient experience."
         canonical="https://www.hotelsunshinepauni.com/pauni-tourism"
         openGraph={{
           type: 'website',
           url: 'https://www.hotelsunshinepauni.com/pauni-tourism',
-          title: 'Best Tourist Places in Pauni | Hotel Sunshine Pauni',
-          description: 'Explore historical forts, ancient temples, and spiritual sites in Pauni. Perfect destination for Maharashtra tourism.',
+          title: 'Best Tourist Attractions in Pauni | Hotel Sunshine Pauni',
+          description:
+            'Explore Pauni’s spiritual, historical, and cultural landmarks like Waijeshwar Ghat, Pauni Fort, and Buddhist Stupas. Ideal for religious tourism and nature lovers.',
           images: [
             {
               url: 'https://www.hotelsunshinepauni.com/pauni_tourism/Pauni_Fort-_Pauni_(Bhandara_District)-_Maharashtra-01.webp',
-              width: 800,
-              height: 600,
-              alt: 'Pauni Fort near Wainganga river in Pauni',
+              width: 1200,
+              height: 800,
+              alt: 'Scenic view of Pauni Fort along the Wainganga River',
             },
           ],
           site_name: 'Hotel Sunshine Pauni',
@@ -159,16 +159,23 @@ export default function PlacesList() {
         additionalMetaTags={[
           {
             name: 'keywords',
-            content: 'Pauni tourism, hotels in Pauni, Pauni Fort, Waijeshwar Temple, places to visit in Pauni, Maharashtra tourism, Hotel Sunshine Pauni, accommodation near tourist attractions'
+            content:
+              'Tourist places in Pauni, Pauni tourism, Waijeshwar Temple, Pauni Fort, Buddhist stupas Pauni, spiritual tourism Pauni, places to visit in Bhandara, Pauni ghats, Hotel near Pauni attractions, Maharashtra heritage tourism',
           },
           {
             name: 'viewport',
-            content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0'
-          }
+            content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0',
+          },
+          {
+            name: 'author',
+            content: 'Hotel Sunshine Pauni',
+          },
+          {
+            name: 'robots',
+            content: 'index,follow',
+          },
         ]}
       />
-
-
       <section
         ref={sectionRef}
         className="py-12 sm:py-16 lg:py-20 bg-[#0e1529] relative overflow-hidden"
@@ -194,8 +201,8 @@ export default function PlacesList() {
             <h1
               id="places-heading"
               className={`text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-light text-white mb-4 transform transition-all duration-800 will-change-transform ${isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
                 }`}
               itemProp="name"
             >
@@ -203,8 +210,8 @@ export default function PlacesList() {
             </h1>
             <p
               className={`text-white/70 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto mb-4 transform transition-all duration-800 delay-100 will-change-transform ${isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
                 }`}
               itemProp="description"
             >
@@ -212,8 +219,8 @@ export default function PlacesList() {
             </p>
             <div
               className={`w-16 sm:w-20 lg:w-24 h-px bg-gradient-to-r from-transparent via-[#DAA520] to-transparent mx-auto transform transition-all duration-800 delay-200 will-change-transform ${isVisible
-                  ? 'opacity-100 scale-x-100'
-                  : 'opacity-0 scale-x-0'
+                ? 'opacity-100 scale-x-100'
+                : 'opacity-0 scale-x-0'
                 }`}
             />
           </header>
@@ -224,8 +231,8 @@ export default function PlacesList() {
               <article
                 key={attraction.id}
                 className={`relative group max-w-xs sm:max-w-sm transform transition-all duration-700 will-change-transform ${animatedItems.has(index)
-                    ? 'opacity-100 translate-y-0 scale-100'
-                    : 'opacity-0 translate-y-12 scale-95'
+                  ? 'opacity-100 translate-y-0 scale-100'
+                  : 'opacity-0 translate-y-12 scale-95'
                   }`}
                 itemScope
                 itemType="https://schema.org/Place"
@@ -235,10 +242,10 @@ export default function PlacesList() {
                 {/* Main Circle with Enhanced Text Visibility */}
                 <div
                   className={`relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden cursor-pointer transform transition-all duration-500 ease-out will-change-transform ${hoveredId === attraction.id
-                      ? 'scale-105 lg:scale-110 shadow-2xl shadow-[#DAA520]/40'
-                      : hoveredId && hoveredId !== attraction.id
-                        ? 'scale-95 opacity-70'
-                        : 'scale-100'
+                    ? 'scale-105 lg:scale-110 shadow-2xl shadow-[#DAA520]/40'
+                    : hoveredId && hoveredId !== attraction.id
+                      ? 'scale-95 opacity-70'
+                      : 'scale-100'
                     }`}
                   role="button"
                   tabIndex={0}
@@ -286,8 +293,8 @@ export default function PlacesList() {
                   {/* Golden Ring with Glow Effect */}
                   <div
                     className={`absolute inset-0 rounded-full border-2 transform transition-all duration-500 will-change-auto ${hoveredId === attraction.id
-                        ? 'border-[#DAA520] shadow-lg shadow-[#DAA520]/50 ring-1 ring-[#DAA520]/30'
-                        : 'border-white/20'
+                      ? 'border-[#DAA520] shadow-lg shadow-[#DAA520]/50 ring-1 ring-[#DAA520]/30'
+                      : 'border-white/20'
                       }`}
                   />
 
@@ -312,16 +319,16 @@ export default function PlacesList() {
                   {/* Animated Hover Ring */}
                   <div
                     className={`absolute inset-0 rounded-full border border-[#DAA520] transform transition-all duration-700 will-change-transform ${hoveredId === attraction.id
-                        ? 'scale-110 opacity-100 rotate-12'
-                        : 'scale-100 opacity-0 rotate-0'
+                      ? 'scale-110 opacity-100 rotate-12'
+                      : 'scale-100 opacity-0 rotate-0'
                       }`}
                   />
 
                   {/* Pulse Animation on Hover */}
                   <div
                     className={`absolute inset-0 rounded-full bg-[#DAA520]/10 transform transition-all duration-1000 ${hoveredId === attraction.id
-                        ? 'scale-125 opacity-0'
-                        : 'scale-100 opacity-100'
+                      ? 'scale-125 opacity-0'
+                      : 'scale-100 opacity-100'
                       }`}
                   />
                 </div>
@@ -371,7 +378,7 @@ export default function PlacesList() {
             ))}
           </div>
 
-        
+
         </div>
       </section>
 

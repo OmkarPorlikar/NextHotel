@@ -98,6 +98,7 @@ const roomData = [
     image: '/sunshine_hotel_pauni_room2.jpeg',
     overview: 'Our Executive Rooms offer refined luxury with ample space, elegant interiors, and all essential amenities to make your stay comfortable.',
     facilities: [
+      'BreakFast',
       'Air Conditioner',
       'King Size Bed',
       'Work Desk',
